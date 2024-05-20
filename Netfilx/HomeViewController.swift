@@ -57,8 +57,8 @@ class HomeViewController: UIViewController {
         
         setSubImageViewList()
         
-        setTop10Image()
-        shuffleTop10()
+//        setTop10Image()
+//        shuffleTop10()
         
         
     }
