@@ -36,8 +36,6 @@ class NewHotViewController: UIViewController {
         
         searchSymbolImageView.image = UIImage(systemName: "magnifyingglass")
         searchSymbolImageView.tintColor = .lightGray
-//        searchLabel.backgroundColor = .darkGray
-//        searchLabel.layer.cornerRadius = 3
         searchTextField.attributedPlaceholder = NSAttributedString(string: "게임, 시리즈, 영화를 검색하세요...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         searchTextField.backgroundColor = .darkGray
         
@@ -174,6 +172,6 @@ class NewHotViewController: UIViewController {
     @IBAction func textFieldReturnTapped(_ sender: Any) {
     }
     
-   
+
 
 }

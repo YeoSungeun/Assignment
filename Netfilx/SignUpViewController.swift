@@ -33,32 +33,11 @@ class SignUpViewController: UIViewController {
         logoLabel.textAlignment = .center
         logoLabel.font = .systemFont(ofSize: 30, weight: .heavy)
         
-        emailTextField.textColor = .white
-        emailTextField.textAlignment = .center
-        emailTextField.backgroundColor = .darkGray
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "이메일 주소 또는 전화번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        
-        passwordTextField.textColor = .white
-        passwordTextField.textAlignment = .center
-        passwordTextField.backgroundColor = .darkGray
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        passwordTextField.keyboardType = .numberPad
-      
-        
-        nickNameTextField.textColor = .white
-        nickNameTextField.textAlignment = .center
-        nickNameTextField.backgroundColor = .darkGray
-        nickNameTextField.attributedPlaceholder = NSAttributedString(string: "닉네임", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        
-        locationTextField.textColor = .white
-        locationTextField.textAlignment = .center
-        locationTextField.backgroundColor = .darkGray
-        locationTextField.attributedPlaceholder = NSAttributedString(string: "위치", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        
-        recommendCodeTextField.textColor = .white
-        recommendCodeTextField.textAlignment = .center
-        recommendCodeTextField.backgroundColor = .darkGray
-        recommendCodeTextField.attributedPlaceholder = NSAttributedString(string: "추천 코드 입력", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        setTextFieldUI(textField: emailTextField, placeholderText: "이메일 주소 또는 전화번호")
+        setTextFieldUI(textField: passwordTextField, placeholderText: "비밀번호")
+        setTextFieldUI(textField: nickNameTextField, placeholderText: "닉네임")
+        setTextFieldUI(textField: locationTextField, placeholderText: "위치")
+        setTextFieldUI(textField: recommendCodeTextField, placeholderText: "추천 코드 입력")
         
         signUpButton.setTitle("회원가입", for: .normal)
         signUpButton.setTitleColor(.black, for: .normal)
@@ -80,6 +59,14 @@ class SignUpViewController: UIViewController {
         print("회원가입 버튼")
         view.endEditing(true)
         print("Git practice")
+    }
+    
+    func setTextFieldUI(textField: UITextField, placeholderText: String) {
+        textField.textColor = .white
+        textField.textAlignment = .center
+        textField.backgroundColor = .darkGray
+        textField.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+
     }
     
 
