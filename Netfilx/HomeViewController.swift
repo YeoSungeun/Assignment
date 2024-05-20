@@ -13,9 +13,8 @@ class HomeViewController: UIViewController {
     @IBOutlet var homeViewNavigationTitle: UINavigationItem!
 
     @IBOutlet var mainPosterImageView: UIImageView!
-    @IBOutlet var secondPosterImageView: UIImageView!
-    @IBOutlet var thirdPosterImageView: UIImageView!
-    @IBOutlet var fourthPosterImageView: UIImageView!
+    
+    @IBOutlet var posterList: [UIImageView]!
     
     @IBOutlet var playButton: UIButton!
     @IBOutlet var likeButton: UIButton!
@@ -26,11 +25,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var thirdTop10ImageView: UIImageView!
     @IBOutlet var fourthTop10ImageView: UIImageView!
     
-    
-    @IBOutlet var secondNewEpisodeImageView: UIImageView!
-    @IBOutlet var thirdNewEpisodeImageView: UIImageView!
-    @IBOutlet var fourthNewEpisodeImageView: UIImageView!
-    
+
     
     var movies = ["극한직업", "노량", "도둑들", "베테랑","1", "2", "3", "4", "5"]
     
@@ -60,28 +55,10 @@ class HomeViewController: UIViewController {
         mainPosterImageView.layer.cornerRadius = 10
         mainPosterImageView.contentMode = .scaleAspectFill
         
-        secondPosterImageView.image = UIImage(named: movies[1])
-        secondPosterImageView.layer.cornerRadius = 5
-        secondPosterImageView.contentMode = .scaleAspectFill
+        setSubImageViewList()
         
-        thirdPosterImageView.image = UIImage(named: movies[2])
-        thirdPosterImageView.layer.cornerRadius = 5
-        thirdPosterImageView.contentMode = .scaleAspectFill
-        
-        fourthPosterImageView.image = UIImage(named: movies[3])
-        fourthPosterImageView.layer.cornerRadius = 5
-        fourthPosterImageView.contentMode = .scaleAspectFill
-        
-        setSubImageView(image: secondPosterImageView, index: 1)
-        setSubImageView(image: thirdPosterImageView, index: 2)
-        setSubImageView(image: fourthPosterImageView, index: 3)
-        
-        secondTop10ImageView.image = UIImage.top10Badge
-        thirdTop10ImageView.image = UIImage.top10Badge
-        thirdTop10ImageView.isHidden = true
-        fourthTop10ImageView.image = UIImage.top10Badge
-        fourthTop10ImageView.isHidden = true
-        
+        setTop10Image()
+        shuffleTop10()
         
         
     }
@@ -98,21 +75,32 @@ class HomeViewController: UIViewController {
         
         movies.shuffle()
         mainPosterImageView.image = UIImage(named: movies[0])
-        secondPosterImageView.image = UIImage(named: movies[1])
-        thirdPosterImageView.image = UIImage(named: movies[2])
-        fourthPosterImageView.image = UIImage(named: movies[3])
+        setSubImageViewList()
         
+        shuffleTop10()
+ 
+    }
+
+    func setSubImageViewList() {
+        for image in posterList {
+            image.image = UIImage(named: movies[image.tag])
+            image.layer.cornerRadius = 5
+            image.contentMode = .scaleAspectFill
+
+        }
+    }
+    
+    func setTop10Image() {
+        secondTop10ImageView.image = UIImage.top10Badge
+        thirdTop10ImageView.image = UIImage.top10Badge
+        fourthTop10ImageView.image = UIImage.top10Badge
+    }
+    
+    func shuffleTop10() {
         boolArray.shuffle()
         secondTop10ImageView.isHidden = boolArray[0]
         thirdTop10ImageView.isHidden = boolArray[1]
         fourthTop10ImageView.isHidden = boolArray[2]
-    }
-    
-    func setSubImageView(image: UIImageView, index: Int) {
-        image.image = UIImage(named: movies[index])
-        image.layer.cornerRadius = 5
-        image.contentMode = .scaleAspectFill
-
     }
 
 
